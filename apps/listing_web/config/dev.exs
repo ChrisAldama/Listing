@@ -38,5 +38,5 @@ config :listing_web, ListingWeb.Repo,
   username: "postgres",
   password: "postgres",
   database: "listing_web_dev",
-  hostname: "localhost",
+  hostname: "192.168.99.100",
   pool_size: 10
