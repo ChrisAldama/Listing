@@ -31,7 +31,7 @@ defmodule ListingWeb.Property do
 
   @valid_fields [:property_type, :raw_id, :url, :title, :content, :type, :agency,:price_currency,
     :price, :floor_area_unit, :floor_area, :rooms, :bathrooms, :city, :city_area, :region,
-    :longitude, :latitude, :date, :time]
+    :longitude, :latitude, :date, :time, :published]
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
