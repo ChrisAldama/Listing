@@ -3,20 +3,21 @@ defmodule ListingWeb.SyncTask do
   alias ListingWeb.Picture
   alias ListingWeb.Repo
   alias ListingWeb.SyncTask
-  import Ecto.Query
+  import ListingWeb.Publish
   require Logger
   @default_time 8 * 1000 * 60 * 60 #8 hours
 
   def start(interval \\ @default_time) do
-    :time.apply_interval(@default_time, &SyncTask.sync/0)
+    :erl_timer.apply_interval(interval, &SyncTask.sync/0)
   end
 
   def sync do
    case Sync.get() do
      {:ok, data} ->
         data
+        |> unpublish()
         |> Enum.map(&SyncTask.update_or_insert/1)
-        |> Enum.reduce(fn x, acc -> x and acc end)
+        |> Enum.reduce(true, fn x, acc -> x and acc end)
         |> (&(if &1, do: :ok, else: {:error, "Some register couldn't be inserted"})).()
 
       {:error, error} = result ->
@@ -54,7 +55,7 @@ defmodule ListingWeb.SyncTask do
    def insert_pictures(%Property{} = property, pictures) do
      pictures
      |> Enum.map(&(insert_picture(property.id, &1)))
-     |> Enum.reduce(fn r, acc -> r and acc end)
+     |> Enum.reduce(true, fn r, acc -> r and acc end)
    end
 
    def insert_picture(property_id, picture) do
