@@ -1,0 +1,11 @@
+<h2>Show property</h2>
+
+<ul>
+
+  <li>
+    <strong>Property type:</strong>
+    <%= @property.property_type %>
+  </li>
+
+</ul>
+

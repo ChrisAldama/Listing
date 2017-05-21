@@ -1,18 +1,12 @@
 defmodule Sync do
-  @moduledoc """
-  Documentation for Sync.
-  """
 
-  @doc """
-  Hello world.
+  def get do
+    case Sync.Download.compressed_feed() do
+        {:ok, data} ->
+            {:ok, Sync.Parser.Xml.parse(data)}
 
-  ## Examples
-
-      iex> Sync.hello
-      :world
-
-  """
-  def hello do
-    :world
+        error ->
+            error
+    end
   end
 end
