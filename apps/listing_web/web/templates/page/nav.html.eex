@@ -1,0 +1,16 @@
+<nav class="nav has-shadow">
+  <div class="nav-left">
+    <div class="nav-item">
+      <a class="title" href="/">
+        Listing Site
+      </a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a class="nav-item">
+      <span class="icon">
+        <i class="fa fa-github"></i>
+      </span>
+    </a>
+  </div>
+</nav>

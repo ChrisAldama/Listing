@@ -3,6 +3,11 @@ alias ListingWeb.Repo
 alias ListingWeb.Property
 import Ecto.Query
 
+  @doc
+  """
+  This funcion mark a unpublished all the properties in db
+  but not present in the remote feed.
+  """
   def unpublish(data) do
     new_ids = data
     |> Enum.map(fn m -> m.id end)

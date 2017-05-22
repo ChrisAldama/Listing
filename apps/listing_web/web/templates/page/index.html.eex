@@ -1,2 +1,12 @@
 <div>
+  <div class="columns is-mobile is-multiline tiles">
+    <%= for property <- @properties do %>
+      <div class="column is-one-quarter tile">
+          <%= render ListingWeb.PropertyView, "card.html", property: property %>
+      </div>
+    <% end %>
+  </div>
+  <div class="is-fullwidth">
+    <%= render "pager.html", pagination: @pagination %>
+  </div>
 </div>

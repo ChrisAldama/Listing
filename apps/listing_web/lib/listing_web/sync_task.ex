@@ -3,7 +3,7 @@ defmodule ListingWeb.SyncTask do
   alias ListingWeb.Picture
   alias ListingWeb.Repo
   alias ListingWeb.SyncTask
-  import ListingWeb.Publish
+  alias ListingWeb.Publish
   require Logger
   @default_time 8 * 1000 * 60 * 60 #8 hours
 
@@ -15,7 +15,7 @@ defmodule ListingWeb.SyncTask do
    case Sync.get() do
      {:ok, data} ->
         data
-        |> unpublish()
+        |> Publish.unpublish()
         |> Enum.map(&SyncTask.update_or_insert/1)
         |> Enum.reduce(true, fn x, acc -> x and acc end)
         |> (&(if &1, do: :ok, else: {:error, "Some register couldn't be inserted"})).()

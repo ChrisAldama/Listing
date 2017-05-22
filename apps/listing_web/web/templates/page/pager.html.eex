@@ -1,0 +1,11 @@
+<nav class="pagination is-centered" style="width: 100%; display: flex; flex-direction: row;">
+  <a  href="/?page=<%= @pagination.selected - 1 %>" class="pagination-previous" <%= previous @pagination %> >
+    Atrás
+  </a>
+  <a href="/?page=<%= @pagination.selected + 1 %>" class="pagination-next" <%= next @pagination %> >
+    Siguiente
+  </a>
+  <ul class="pagination-list">
+    <%= build @pagination %>
+  </ul>
+</nav>

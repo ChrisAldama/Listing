@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="<%= get_image(@property) %>">
+    </figure>
+  </div>
+  <div class="card-header">
+  Card
+  </div>
+  <div class="card-content">
+    <div class="content">
+      <%= @property.content %>
+    </div>
+  </div>
+</div>
