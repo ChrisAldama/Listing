@@ -8,7 +8,7 @@ defmodule ListingWeb.SyncTask do
   @default_time 8 * 1000 * 60 * 60 #8 hours
 
   def start(interval \\ @default_time) do
-    :erl_timer.apply_interval(interval, &SyncTask.sync/0)
+    :timer.apply_interval(interval, __MODULE__, &SyncTask.sync/0, [])
   end
 
   def sync do
