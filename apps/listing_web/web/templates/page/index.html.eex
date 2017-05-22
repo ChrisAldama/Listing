@@ -1,7 +1,7 @@
 <div>
-  <div class="columns is-mobile is-multiline tiles">
+  <div class="columns is-mobile is-multiline">
     <%= for property <- @properties do %>
-      <div class="column is-one-quarter tile">
+      <div class="column is-one-third">
           <%= render ListingWeb.PropertyView, "card.html", property: property %>
       </div>
     <% end %>

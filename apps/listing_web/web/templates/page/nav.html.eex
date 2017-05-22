@@ -1,8 +1,8 @@
-<nav class="nav has-shadow">
+<nav class="is-info nav has-shadow">
   <div class="nav-left">
     <div class="nav-item">
       <a class="title" href="/">
-        Listing Site
+        Famous Listing Site
       </a>
     </div>
   </div>

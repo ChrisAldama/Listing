@@ -1,15 +1,35 @@
+<a href="/<%= @property.id %>/detail">
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
       <img src="<%= get_image(@property) %>">
+      <div class="price-container">
+        <p class="address">
+          <%= get_address @property %>
+        </p>
+        <span class="price">
+          <%= format_price @property.price, @property.price_currency %>
+        <span>
+      </div>
+
     </figure>
   </div>
-  <div class="card-header">
-  Card
-  </div>
-  <div class="card-content">
-    <div class="content">
-      <%= @property.content %>
-    </div>
+  <div class="card-header has-text-right">
+    <span style="width: 100%; font-size: 0.7em; padding: 10px">
+     <span class="is-small" style="margin: 8px;">
+        <i class="fa fa-home"></i>
+        <span><%= get_area @property%></span>
+      </span>
+      <span class="is-small" style="margin: 8px;">
+        <i class="fa fa-bath"></i>
+        <span><%= @property.bathrooms || "-" %></span>
+      </span>
+      <span class="is-small" style="margin: 8px;">
+        <i class="fa fa-hotel"></i>
+        <span><%= @property.rooms || "-" %></span>
+      </span>
+      <%= @property.property_type %> <%= String.downcase @property.type %>
+    </span>
   </div>
 </div>
+</a>

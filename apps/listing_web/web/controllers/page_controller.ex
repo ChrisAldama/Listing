@@ -14,7 +14,8 @@ defmodule ListingWeb.PageController do
     props = Repo.all from p in Property,
         preload: [:pictures],
         limit: @props_per_page,
-        offset: ^get_offset(page, count)
+        offset: ^get_offset(page, count),
+        where: p.published == true
 
     context = [properties: props,
                pagination: %Pagination{count: max_pages(count), selected: page}]
