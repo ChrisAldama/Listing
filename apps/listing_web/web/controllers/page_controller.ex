@@ -7,6 +7,11 @@ defmodule ListingWeb.PageController do
 
   @props_per_page 12
 
+  def detail(conn, %{"id" => id}) do
+    prop = Repo.get from(p in Property, preload: [:pictures]), id
+    render conn, ListingWeb.PropertyView, "show.html", property: prop
+  end
+
   def index(conn, params) do
     count = Repo.aggregate Property, :count, :id
     page = get_page(params)

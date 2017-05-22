@@ -29,4 +29,10 @@ defmodule ListingWeb.PropertyView do
   def get_area(prop) do
     "#{prop.floor_area} #{prop.floor_area_unit}"
   end
+
+  def get_data(prop) do
+    prop
+    |> Map.take([:title, :property_type, :url, :content, :agency])
+    |> Map.to_list()
+  end
 end

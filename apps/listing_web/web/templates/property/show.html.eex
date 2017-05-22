@@ -1,11 +1,19 @@
-<h2>Show property</h2>
-
-<ul>
-
-  <li>
-    <strong>Property type:</strong>
-    <%= @property.property_type %>
-  </li>
-
-</ul>
-
+<article class="card">
+    <div class="card-image">
+        <figure class="image">
+            <img src="<%= get_image @property %>">
+        </figure>
+    </div>
+    <div class="card-content content">
+      <%= for {k, v} <- get_data @property do %>
+        <div class="message">
+          <div class="message-header">
+            <p> <%= k %> </p>
+          </div>
+          <div class="message-body">
+            <%= v %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</article>
